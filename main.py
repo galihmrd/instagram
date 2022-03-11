@@ -23,8 +23,6 @@ def download(bot, update):
     if instagram_post=="/start":
         bot.send_chat_action(chat_id=update.message.chat_id, action="typing")
         update.message.reply_text("❤️ Thanks For Using Me Just Send Me The Link In Below Format  \n🔥 Format :- https://www.instagram.com/p/B4zvXCIlNTw/ \nVideos Must Be Less Then 20MB, For Now It Cannot Support Long IGTV Videos \n\n<b>Support Group :-</b> @Technology_Arena \n<b>🌀 Source</b> \nhttps://github.com/TheDarkW3b/instagram", parse_mode=ParseMode.HTML, disable_web_page_preview=True)
-    else:
-        pass
     if "instagram.com" in instagram_post:
         changing_url = instagram_post.split("/")
         url_code = changing_url[4]
@@ -35,7 +33,7 @@ def download(bot, update):
             checking_video = visit['graphql']['shortcode_media']['is_video']
         except:
             bot.sendMessage(chat_id=update.message.chat_id, text="Send Me Only Public Instagram Posts ⚡️")
-        
+
         if checking_video==True:
             try:
                 video_url = visit['graphql']['shortcode_media']['video_url']
